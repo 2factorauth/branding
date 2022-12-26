@@ -1,2 +1,2 @@
-# branding
-Two Factor Auth's branding, logos and designs
+# 2factorauth Branding
+2factorauth's branding, logos and designs
