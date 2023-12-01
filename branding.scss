@@ -1,0 +1,336 @@
+// Global
+$success: #B1DFBB;
+$danger: #F1B0B7;
+$brand-color: #38CCCC;
+
+// Light
+$light-bg-primary: #FFF;
+$light-bg-secondary: #F0F0F0;
+$light-text: #111;
+$light-category-btn: #F5F7F5;
+
+// Dark
+$dark-bg-primary: #212121;
+$dark-bg-secondary: #4F4F4F;
+$dark-text: #EEE;
+$dark-category-btn: #333B3B;
+
+@function toRGB ($color) {
+  @return "RGB(" + red($color) + ", " + green($color) + ", " + blue($color)+ ")";
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, system-ui, segoe ui, "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  margin: 0;
+
+  h1, h2, h3, h4, h5 {
+    font-family: "roboto", sans-serif;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Roboto:wght@100;300&display=swap');
+container {
+  height: 100vh;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: 26rem 1fr;
+  color: #111;
+  background: $brand-color;
+  //border-bottom: 1px solid $light-text;
+}
+
+article {
+  background: $light-bg-primary;
+  color: $light-text;
+
+  &.dark {
+    color: $dark-text;
+    background: $dark-bg-primary;
+  }
+
+  padding: 1.5rem;
+
+  h1 {
+    font-weight: 300;
+    font-size: 2em;
+  }
+}
+
+main {
+  padding: 1.5rem;
+  align-self: center;
+  display: flex;
+  align-content: center;
+  margin: auto;
+
+  .color-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 2em;
+    grid-row-gap: 2em;
+
+    & > * {
+      position: relative;
+      text-align: center;
+      aspect-ratio: 1;
+      font-size: 2rem;
+      font-weight: 300;
+      padding: .4em;
+      font-family: "roboto", sans-serif;
+      display: grid;
+      border-radius: 3px;
+      box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+
+      & > * {
+        align-self: center;
+      }
+
+      &::after {
+        position: absolute;
+        bottom: .5em;
+        font-size: .5em;
+        height: min-content;
+        text-align: center;
+        left: 0;
+        right: 0;
+        white-space: pre;
+      }
+    }
+
+    &.light {
+      color: $light-text;
+
+      .background-primary {
+        background: $light-bg-primary;
+
+        &::after {
+          content: "#{toRGB($light-bg-primary)} \A #{$light-bg-primary}";
+        }
+      }
+
+      .background-secondary {
+        background: $light-bg-secondary;
+
+        &::after {
+          content: "#{toRGB($light-bg-secondary)} \A #{$light-bg-secondary}";
+        }
+      }
+
+      //noinspection CssInvalidPropertyValue
+      .text-color {
+        background: $light-text;
+        color: invert($light-text);
+
+        &::after {
+          content: "#{toRGB($light-text)} \A #{$light-text}";
+        }
+      }
+
+      .success {
+        background: $success;
+
+        &::after {
+          content: "#{toRGB($success)} \A #{$success}";
+        }
+      }
+
+      .danger {
+        background: $danger;
+
+        &::after {
+          content: "#{toRGB($danger)} \A #{$danger}";
+        }
+      }
+
+      .category-btn {
+        background: $light-category-btn;
+
+        &::after {
+          content: "#{toRGB($light-category-btn)} \A #{$light-category-btn}";
+        }
+      }
+    }
+
+    &.dark {
+      color: $dark-text;
+
+      .background-primary {
+        background: $dark-bg-primary;
+        color: $dark-text;
+
+        &::after {
+          content: "#{toRGB($dark-bg-primary)} \A #{$dark-bg-primary}";
+        }
+      }
+
+      .background-secondary {
+        background: $dark-bg-secondary;
+
+        &::after {
+          content: "#{toRGB($dark-bg-secondary)} \A #{$dark-bg-secondary}";
+        }
+      }
+
+      .text-color {
+        background: $dark-text;
+        color: invert($dark-text);
+
+        &:after {
+          content: "#{toRGB($dark-text)} \A #{$dark-text}";
+        }
+      }
+
+      .success {
+        background: $success;
+        color: invert($dark-text);
+
+        &::after {
+          content: "#{toRGB($success)} \A #{$success}";
+        }
+      }
+
+      .danger {
+        background: $danger;
+        color: invert($dark-text);
+
+        &::after {
+          content: "#{toRGB($danger)} \A #{$danger}";
+        }
+      }
+
+      .category-btn {
+        background: $dark-category-btn;
+
+        &::after {
+          content: "#{toRGB($dark-category-btn)} \A #{$dark-category-btn}";
+        }
+      }
+    }
+  }
+}
+
+main:has(#logo-grid) {
+  width: 100%;
+  padding: 0;
+}
+
+#logo-grid {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+
+  * {
+    width: 20rem;
+  }
+
+}
+
+.breakpoint {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+
+  h1 {
+    width: 100%;
+    text-align: center;
+    font-size: 5rem;
+    font-weight: 100;
+    text-decoration: underline $brand-color;
+  }
+}
+#projects-page {
+  article {
+    ul {
+      list-style-type: none;
+
+      li {
+        &:before {
+          font-family: "bootstrap-icons";
+          font-weight: bold;
+          font-size: 2em;
+          margin-left: -1.5em;
+          vertical-align: -0.35em;
+        }
+
+        &.do:before {
+          content: '\F26E';
+          color: $success;
+        }
+        &.dont:before {
+          content: '\F62A';
+          color: $danger;
+        }
+      }
+    }
+  }
+}
+main:has(.projects) {
+  padding: 0;
+  width: 100%;
+}
+
+.projects {
+  color: $dark-text;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+
+  .project {
+    display: grid;
+    grid-auto-flow: row;
+
+    span {
+      font-size: 2.2em;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+
+      &:before {
+        font-family: "bootstrap-icons";
+        font-size: 1em;
+        font-weight: bold;
+        padding-right: .5rem;
+        vertical-align: -.125em;
+
+      }
+    }
+
+    .project-url {
+      font-size: 1.2em;
+
+      &:before {
+        content: '\F470';
+        padding-right: .2rem;
+        vertical-align: -.25em;
+
+      }
+    }
+
+    .project-repo::before {
+      content: '\F3ED'
+    }
+
+  }
+}
+
+@media print {
+  @page {
+    size: 1920px 1080px;
+    margin: 0;
+  }
+  .breakpoint, container {
+    height: 1080px !important;
+    width: 1920px !important;
+  }
+  container {
+    grid-template-columns: 35rem 1fr;
+  }
+  article {
+    padding: 3rem;
+  }
+}
