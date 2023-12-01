@@ -26,12 +26,11 @@ body {
   min-width: 1080px;
 
   h1, h2, h3, h4, h5 {
-    font-family: "roboto", sans-serif;
+    font-family: 'Roboto', sans-serif;
   }
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&family=Roboto:wght@100;300&display=swap');
-container {
+.container {
   height: 100vh;
   left: 0;
   right: 0;
@@ -39,7 +38,6 @@ container {
   grid-template-columns: 26rem 1fr;
   color: #111;
   background: $brand-color;
-  //border-bottom: 1px solid $light-text;
 }
 
 article {
@@ -70,8 +68,8 @@ main {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: max(2.5vw,2.5vh);
-    grid-row-gap: max(2.5vw,2.5vh);
+    grid-column-gap: max(2.5vw, 2.5vh);
+    grid-row-gap: max(2.5vw, 2.5vh);
     min-width: 644px;
 
     & > * {
@@ -81,7 +79,7 @@ main {
       font-size: 2rem;
       font-weight: 300;
       padding: .4em;
-      font-family: "roboto", sans-serif;
+      font-family: 'Roboto', sans-serif;
       display: grid;
       border-radius: 3px;
       box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
@@ -338,11 +336,11 @@ main:has(.projects) {
     size: 1920px 1080px;
     margin: 0;
   }
-  .breakpoint, container {
+  .breakpoint, .container {
     height: 1080px !important;
     width: 1920px !important;
   }
-  container {
+  .container {
     grid-template-columns: 35rem 1fr;
   }
   article {

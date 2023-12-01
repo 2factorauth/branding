@@ -1,0 +1,25 @@
+  on: push
+  jobs:
+    build:
+      name: Build & Publish
+      runs-on: ubuntu-latest
+      permissions:
+        contents: read
+        pages: write
+        id-token: write
+      steps:
+        - uses: actions/checkout@v4
+        - name: Convert SCSS
+          run: |
+            npm install sass html-minifier
+            npx sass index.scss:index.css --style compressed
+            npx html-minifier --collapse-whitespace --remove-comments --remove-script-type-attributes -o index.html index.html
+        - name: Prepare publish directory
+          run: |
+            mkdir public
+            cp index.{html,css,css.map} public/
+        - uses: actions/upload-pages-artifact@v1
+          with:
+            path: public/
+        - name: Deploy to GitHub Pages
+          uses: actions/deploy-pages@v1
