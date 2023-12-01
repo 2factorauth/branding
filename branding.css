@@ -172,13 +172,20 @@ main:has(#logo-grid) {
   height: 100vh;
   display: flex;
   align-items: center;
+  text-align: center;
+}
+.breakpoint * {
+  width: 100%;
 }
 .breakpoint h1 {
-  width: 100%;
-  text-align: center;
   font-size: 5rem;
   font-weight: 100;
   text-decoration: underline #38CCCC;
+}
+.breakpoint .sub-topic {
+  margin-top: -1.5em;
+  font-size: 2em;
+  font-weight: 500;
 }
 
 #projects-page article ul {
@@ -257,6 +264,38 @@ main:has(.projects) {
   article {
     padding: 3rem;
   }
+}
+.brand-color-grid {
+  background: #FFF;
+  padding: 0.5em;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1.5fr repeat(3, 1fr);
+  grid-column-gap: 0.5em;
+  grid-row-gap: 0.5em;
+  align-content: center;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
+  width: min(30rem, 30vw);
+}
+.brand-color-grid * {
+  display: grid;
+  height: 3em;
+  align-content: center;
+}
+.brand-color-grid *:first-child {
+  height: 100%;
+  font-weight: 700;
+  font-size: 15px;
+  text-align: center;
+}
+.brand-color-grid *:nth-child(even) {
+  grid-column: span 2;
+}
+.brand-color-grid *:nth-child(2) {
+  background: #38CCCC;
+  height: 100%;
+  grid-area: 1/2/2/4;
 }
 
 /*# sourceMappingURL=branding.css.map */

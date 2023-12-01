@@ -8,7 +8,7 @@ $light-bg-primary: #FFF;
 $light-bg-secondary: #F0F0F0;
 $light-text: #111;
 $light-category-btn: #F5F7F5;
-
+$light-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 // Dark
 $dark-bg-primary: #212121;
 $dark-bg-secondary: #4F4F4F;
@@ -231,15 +231,25 @@ main:has(#logo-grid) {
   height: 100vh;
   display: flex;
   align-items: center;
+  text-align: center;
+
+  * {
+    width: 100%;
+  }
 
   h1 {
-    width: 100%;
-    text-align: center;
     font-size: 5rem;
     font-weight: 100;
     text-decoration: underline $brand-color;
   }
+
+  .sub-topic {
+    margin-top: -1.5em;
+    font-size: 2em;
+    font-weight: 500;
+  }
 }
+
 #projects-page {
   article {
     ul {
@@ -258,6 +268,7 @@ main:has(#logo-grid) {
           content: '\F26E';
           color: $success;
         }
+
         &.dont:before {
           content: '\F62A';
           color: $danger;
@@ -266,6 +277,7 @@ main:has(#logo-grid) {
     }
   }
 }
+
 main:has(.projects) {
   padding: 0;
   width: 100%;
@@ -332,5 +344,42 @@ main:has(.projects) {
   }
   article {
     padding: 3rem;
+  }
+}
+
+.brand-color-grid {
+  background: $light-bg-primary;
+  padding: .5em;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1.5fr repeat(3, 1fr);
+  grid-column-gap: .5em;
+  grid-row-gap: .5em;
+  align-content: center;
+  box-shadow: $light-box-shadow;
+  width: min(30rem, 30vw);
+
+  * {
+    display: grid;
+    height: 3em;
+    align-content: center;
+
+    &:first-child {
+      height: 100%;
+      font-weight: 700;
+      font-size: 15px;
+      text-align: center;
+    }
+
+    &:nth-child(even) {
+      grid-column: span 2;
+    }
+
+    &:nth-child(2) {
+      background: $brand-color;
+      height: 100%;
+      grid-area: 1 / 2 / 2 / 4;
+    }
   }
 }
