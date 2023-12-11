@@ -30,7 +30,7 @@ body {
   }
 }
 
-.container {
+section:not(.breakpoint) {
   height: 100vh;
   left: 0;
   right: 0;
@@ -336,11 +336,11 @@ main:has(.projects) {
     size: 1920px 1080px;
     margin: 0;
   }
-  .breakpoint, .container {
+  section {
     height: 1080px !important;
     width: 1920px !important;
   }
-  .container {
+  section:not(.breakpoint) {
     grid-template-columns: 35rem 1fr;
   }
   article {
