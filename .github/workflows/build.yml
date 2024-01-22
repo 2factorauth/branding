@@ -18,6 +18,7 @@
           run: |
             mkdir public
             cp index.{html,css,css.map} public/
+            wget https://codeload.github.com/2factorauth/branding/zip/refs/heads/master -O public/branding.zip
         - uses: actions/upload-pages-artifact@v1
           with:
             path: public/
